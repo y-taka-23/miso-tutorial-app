@@ -3,11 +3,13 @@ module Main where
 
 import           Miso
 
+import           Model
+
 main :: IO ()
 main = startApp App {..}
     where
         initialAction = undefined
-        model = undefined
+        model = initialModel
         update = undefined
         view = undefined
         subs = []
