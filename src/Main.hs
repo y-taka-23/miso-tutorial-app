@@ -8,10 +8,11 @@ import           Model
 import           Update
 
 main :: IO ()
-main = startApp App {..}
+main = do
+    uri <- getCurrentURI
+    startApp App { model = initialModel uri, ..}
     where
         initialAction = initAction
-        model = initialModel
         update = updateModel
         view = undefined
         subs = []
