@@ -8,6 +8,11 @@ cabal-version:       >=1.10
 executable miso-tutorial-app
   main-is:             Main.hs
   hs-source-dirs:      src
-  build-depends:       base
+  build-depends:       aeson
+                     , base
+                     , bytestring
+                     , ghcjs-base
                      , miso
+                     , network-uri
+                     , utf8-string
   default-language:    Haskell2010
