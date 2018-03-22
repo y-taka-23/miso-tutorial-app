@@ -6,6 +6,7 @@ import           Miso
 import           Action
 import           Model
 import           Update
+import           View
 
 main :: IO ()
 main = do
@@ -14,7 +15,7 @@ main = do
     where
         initialAction = initAction
         update = updateModel
-        view = undefined
+        view = viewModel
         subs = []
         events = defaultEvents
         mountPoint = Nothing

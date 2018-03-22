@@ -14,5 +14,6 @@ executable miso-tutorial-app
                      , ghcjs-base
                      , miso
                      , network-uri
+                     , servant
                      , utf8-string
   default-language:    Haskell2010
