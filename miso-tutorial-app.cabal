@@ -7,6 +7,14 @@ cabal-version:       >=1.10
 
 executable miso-tutorial-app
   main-is:             Main.hs
+  other-modules:       Action
+                       Effect
+                       Model
+                       Player.Edit
+                       Player.List
+                       Routing
+                       Update
+                       View
   hs-source-dirs:      src
   build-depends:       aeson
                      , base
