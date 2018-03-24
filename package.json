@@ -1,0 +1,14 @@
+{
+  "name": "miso-tutorial-app",
+  "version": "1.0.0",
+  "description": "An example GHCJS + Miso single page application.",
+  "repository": "git@github.com:y-taka-23/miso-tutorial-app.git",
+  "author": "TAKAHASHI Yuto <ytaka23dev@gmail.com>",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "api": "node api/api.js"
+  },
+  "devDependencies": {
+    "json-server": "^0.12.1"
+  }
+}
