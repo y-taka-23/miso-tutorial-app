@@ -6,7 +6,8 @@
   "author": "TAKAHASHI Yuto <ytaka23dev@gmail.com>",
   "license": "BSD-3-Clause",
   "scripts": {
-    "api": "node api/api.js"
+    "api": "node api/api.js",
+    "client": "webpack-dev-server"
   },
   "devDependencies": {
     "json-server": "^0.12.1"
