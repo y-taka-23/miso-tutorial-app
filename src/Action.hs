@@ -1,6 +1,6 @@
 module Action where
 
-import           Network.URI
+import           Miso
 
 import           Model
 
