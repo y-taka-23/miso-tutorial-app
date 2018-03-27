@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './static/index.js',
+  entry: './client/index.js',
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist')
