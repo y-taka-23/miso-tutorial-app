@@ -11,6 +11,16 @@
     "start": "nf start"
   },
   "devDependencies": {
-    "json-server": "^0.12.1"
+    "ace-css": "^1.1.0",
+    "css-loader": "^0.28.9",
+    "file-loader": "^1.1.6",
+    "font-awesome": "^4.7.0",
+    "ghcjs-require": "file:../ghcjs-commonjs/ghcjs-require",
+    "ghcjs-loader": "file:../ghcjs-commonjs/ghcjs-loader",
+    "json-server": "^0.12.1",
+    "style-loader": "^0.20.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }
