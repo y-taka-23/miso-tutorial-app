@@ -20,7 +20,7 @@ page :: Model -> View Action
 page m = view
     where
         view = either (const notFoundPage) id result
-        result = runRoute (Proxy :: Proxy Route) handlers m
+        result = runRoute (Proxy :: Proxy Route) handlers currentURI m
         handlers = topPage :<|> listPage :<|> editPage
 
 topPage :: Model -> View Action

@@ -7,12 +7,6 @@ data Model = Model
     , currentURI :: URI
     } deriving (Eq, Show)
 
-instance HasURI Model where
-    lensURI = makeLens getter setter
-        where
-            getter m     = currentURI m
-            setter m uri = m { currentURI = uri }
-
 initialModel :: URI -> Model
 initialModel uri = Model
     { players = Left "Loading..."
