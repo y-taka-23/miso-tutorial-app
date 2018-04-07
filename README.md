@@ -1,10 +1,14 @@
 An Example SPA in Miso
 =======================
 
-An example GHCJS + Miso single page application,
-which is ported from [Elm implementation](https://github.com/sporto/elm-tutorial-app).
-
 ![screenshot](screenshot.png)
+
+An example GHCJS + Miso single page application.
+
+This project is ported from [Elm implementation](https://github.com/sporto/elm-tutorial-app). Miso framework aims to provide "The Elm Architecture" for GHCJS, thus its architecture looks very close to the original Elm application. Neverthelss, the Miso implementation has several differences, e.g.
+
+* [Path-based routing by Servant API](./src/Routing.hs)
+* [Accessing outside world in IO monads](./src/Effect.hs)
 
 Running the Application
 -----------------------
