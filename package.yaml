@@ -1,0 +1,19 @@
+name:               miso-tutorial-app
+version:            '0.1.0.0'
+synopsis:           An example GHCJS + Miso single page application.
+category:           Web
+license:            BSD3
+
+dependencies:
+- aeson
+- base
+- bytestring
+- ghcjs-base
+- miso
+- servant
+- utf8-string
+
+executables:
+  miso-tutorial-app:
+    main:           Main.hs
+    source-dirs:    src
