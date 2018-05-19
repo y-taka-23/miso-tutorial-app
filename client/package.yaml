@@ -1,6 +1,6 @@
-name:               miso-tutorial-app
+name:               miso-tutorial-app-client
 version:            '0.1.0.0'
-synopsis:           An example GHCJS + Miso single page application.
+synopsis:           The client side of an example SPA in GHCJS + Miso.
 category:           Web
 license:            BSD3
 
@@ -14,6 +14,8 @@ dependencies:
 - utf8-string
 
 executables:
-  miso-tutorial-app:
+  miso-tutorial-app-client:
     main:           Main.hs
-    source-dirs:    src
+    source-dirs:
+    - ./
+    - ../shared
