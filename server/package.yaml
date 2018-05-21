@@ -1,6 +1,6 @@
-name:               miso-tutorial-app-client
+name:               miso-tutorial-app-server
 version:            '0.1.0.0'
-synopsis:           The client side of an example SPA in GHCJS + Miso.
+synopsis:           The server side of an example SPA in GHCJS + Miso.
 category:           Web
 license:            BSD3
 
@@ -8,14 +8,17 @@ dependencies:
 - aeson
 - base
 - bytestring
-- ghcjs-base
+  #- ghcjs-base
 - miso
 - servant
+- servant-server
 - utf8-string
 - network-uri
+- warp
+- wai
 
 executables:
-  miso-tutorial-app-client:
+  miso-tutorial-app-server:
     main:           Main.hs
     source-dirs:
     - ./
