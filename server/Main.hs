@@ -9,16 +9,26 @@ import           Servant
 
 import           Model
 
+type Api = JsonApi :<|> StaticApi
+
 type JsonApi =
          "players" :> Get '[JSON] [Player]
     :<|> "palyers" :> Capture "id" PlayerId
             :> ReqBody '[JSON] Player :> Put '[JSON] NoContent
 
-jsonApi :: Proxy JsonApi
-jsonApi = Proxy
+type StaticApi = "static" :> Raw
+
+api :: Proxy Api
+api = Proxy
+
+server :: Server Api
+server = handlers :<|> staticFiles
 
 handlers :: Server JsonApi
 handlers = getPlayers :<|> putPlayerById
+
+staticFiles :: Server Raw
+staticFiles = serveDirectory "static"
 
 samplePlayers :: [Player]
 samplePlayers = [
@@ -37,7 +47,7 @@ putPlayerById :: PlayerId -> Player -> Handler NoContent
 putPlayerById _ _ = return NoContent
 
 app :: Application
-app = serve jsonApi handlers
+app = serve api server
 
 main :: IO ()
 main = run 4000 app
