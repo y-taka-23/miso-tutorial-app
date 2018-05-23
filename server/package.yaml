@@ -14,8 +14,10 @@ dependencies:
 - servant-server
 - utf8-string
 - network-uri
+- http-types
 - warp
 - wai
+- lucid
 
 executables:
   miso-tutorial-app-server:

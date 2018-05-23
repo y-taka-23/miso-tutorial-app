@@ -3,13 +3,16 @@
 {-# LANGUAGE TypeOperators     #-}
 module Main where
 
+import           Lucid
+import           Network.HTTP.Types
 import           Network.Wai
 import           Network.Wai.Handler.Warp
 import           Servant
 
 import           Model
+import           View
 
-type Api = JsonApi :<|> StaticApi
+type Api = JsonApi :<|> StaticApi :<|> NotFoundApi
 
 type JsonApi =
          "players" :> Get '[JSON] [Player]
@@ -18,17 +21,25 @@ type JsonApi =
 
 type StaticApi = "static" :> Raw
 
+type NotFoundApi = Raw
+
 api :: Proxy Api
 api = Proxy
 
 server :: Server Api
-server = handlers :<|> staticFiles
+server = handlers :<|> staticFiles :<|> notFoundHtml
 
 handlers :: Server JsonApi
 handlers = getPlayers :<|> putPlayerById
 
 staticFiles :: Server Raw
 staticFiles = serveDirectory "static"
+
+notFoundHtml :: Server Raw
+notFoundHtml _ respond =
+    respond $ responseLBS
+        status404 [("Content-Type", "text/html")] $
+        renderBS (toHtml notFoundPage)
 
 samplePlayers :: [Player]
 samplePlayers = [
