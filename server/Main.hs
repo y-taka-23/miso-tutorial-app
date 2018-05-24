@@ -3,14 +3,35 @@
 {-# LANGUAGE TypeOperators     #-}
 module Main where
 
-import           Lucid
+import qualified Lucid                    as L
+import qualified Lucid.Base               as L
+import           Miso
 import           Network.HTTP.Types
 import           Network.Wai
 import           Network.Wai.Handler.Warp
 import           Servant
 
+import           Action
 import           Model
+import           Routing
 import           View
+
+newtype HtmlPage a = HtmlPage a
+    deriving (Eq, Show)
+
+instance (L.ToHtml a) => L.ToHtml (HtmlPage a) where
+    toHtmlRaw = L.toHtml
+    toHtml (HtmlPage body) =
+        L.doctypehtml_ $ do
+            L.head_ $ do
+                L.title_ "Miso SPA Example"
+                L.meta_ [L.charset_ "utf-8"]
+                L.with (L.script_ mempty)
+                    [ L.makeAttribute "src" "/static/all.js"
+                    , L.makeAttribute "async" mempty
+                    , L.makeAttribute "defer" mempty
+                    ]
+            L.body_ (L.toHtml body)
 
 type Api = JsonApi :<|> StaticApi :<|> NotFoundApi
 
@@ -18,6 +39,8 @@ type JsonApi =
          "players" :> Get '[JSON] [Player]
     :<|> "palyers" :> Capture "id" PlayerId
             :> ReqBody '[JSON] Player :> Put '[JSON] NoContent
+
+type IsomorphicApi = ToServerRoutes Route HtmlPage Action
 
 type StaticApi = "static" :> Raw
 
@@ -39,7 +62,7 @@ notFoundHtml :: Server Raw
 notFoundHtml _ respond =
     respond $ responseLBS
         status404 [("Content-Type", "text/html")] $
-        renderBS (toHtml notFoundPage)
+        L.renderBS (L.toHtml notFoundPage)
 
 samplePlayers :: [Player]
 samplePlayers = [
