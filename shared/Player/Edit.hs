@@ -22,7 +22,7 @@ nav = div_
 listBtn :: View Action
 listBtn = a_
     [ class_ "btn regular"
-    , onClick goList
+    , onClick $ ChangeURI listLink
     ]
     [ i_ [ class_ "fa fa-chevron-left mr1" ] []
     , text "List"

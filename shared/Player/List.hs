@@ -47,7 +47,7 @@ playerRow p = tr_ []
 editBtn :: Player -> View Action
 editBtn p = a_
     [ class_ "btn regular"
-    , onClick (goEdit $ ident p)
+    , onClick $ ChangeURI $ editLink (ident p)
     ]
     [ i_ [ class_ "fa fa-pencil mr1" ] []
     , text "Edit"

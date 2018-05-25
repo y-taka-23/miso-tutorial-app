@@ -21,10 +21,8 @@ type ListRoute = "players" :> View Action
 
 type EditRoute = "players" :> Capture "ident" PlayerId :> View Action
 
-goList :: Action
-goList =
-    ChangeURI $ safeLink (Proxy :: Proxy Route) (Proxy :: Proxy ListRoute)
+listLink :: URI
+listLink = safeLink (Proxy :: Proxy Route) (Proxy :: Proxy ListRoute)
 
-goEdit :: PlayerId -> Action
-goEdit i =
-    ChangeURI $ safeLink (Proxy :: Proxy Route) (Proxy :: Proxy EditRoute) i
+editLink :: PlayerId -> URI
+editLink i = safeLink (Proxy :: Proxy Route) (Proxy :: Proxy EditRoute) i

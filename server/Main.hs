@@ -33,7 +33,7 @@ instance (L.ToHtml a) => L.ToHtml (HtmlPage a) where
                     ]
             L.body_ (L.toHtml body)
 
-type Api = JsonApi :<|> StaticApi :<|> NotFoundApi
+type Api = JsonApi :<|> IsomorphicApi :<|> StaticApi :<|> NotFoundApi
 
 type JsonApi =
          "players" :> Get '[JSON] [Player]
@@ -50,10 +50,22 @@ api :: Proxy Api
 api = Proxy
 
 server :: Server Api
-server = handlers :<|> staticFiles :<|> notFoundHtml
+server = handlers :<|> ssrViews :<|> staticFiles :<|> notFoundHtml
 
 handlers :: Server JsonApi
 handlers = getPlayers :<|> putPlayerById
+
+ssrViews :: Server IsomorphicApi
+ssrViews = topView :<|> listView :<|> editView
+
+topView :: Handler (HtmlPage (View Action))
+topView = return $ HtmlPage . viewModel . initialModel $ listLink
+
+listView :: Handler (HtmlPage (View Action))
+listView = topView
+
+editView :: PlayerId -> Handler (HtmlPage (View Action))
+editView i = return $ HtmlPage . viewModel . initialModel $ editLink i
 
 staticFiles :: Server Raw
 staticFiles = serveDirectory "static"
