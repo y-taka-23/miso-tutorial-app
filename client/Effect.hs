@@ -16,7 +16,7 @@ fetchPlayers = do
     where
         req = Request
             { reqMethod = GET
-            , reqURI = "http://localhost:4000/players"
+            , reqURI = "http://localhost:4000/api/players"
             , reqLogin = Nothing
             , reqHeaders = []
             , reqWithCredentials = False
@@ -31,7 +31,7 @@ savePlayer p = do
     where
         req = Request
             { reqMethod = PUT
-            , reqURI = J.pack $ "http://localhost:4000/players/" ++ ident p
+            , reqURI = J.pack $ "http://localhost:4000/api/players/" ++ ident p
             , reqLogin = Nothing
             , reqHeaders = [("Content-type", "application/json")]
             , reqWithCredentials = False

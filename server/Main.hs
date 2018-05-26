@@ -37,8 +37,8 @@ instance (L.ToHtml a) => L.ToHtml (HtmlPage a) where
 type Api = JsonApi :<|> IsomorphicApi :<|> StaticApi :<|> NotFoundApi
 
 type JsonApi =
-         "players" :> Get '[JSON] [Player]
-    :<|> "palyers" :> Capture "id" PlayerId
+         "api" :> "players" :> Get '[JSON] [Player]
+    :<|> "api" :> "players" :> Capture "id" PlayerId
             :> ReqBody '[JSON] Player :> Put '[JSON] NoContent
 
 type IsomorphicApi = ToServerRoutes Route HtmlPage Action
