@@ -18,6 +18,7 @@ dependencies:
 - warp
 - wai
 - lucid
+- wai-logger
 
 executables:
   miso-tutorial-app-server:

@@ -9,6 +9,7 @@ import           Miso
 import           Network.HTTP.Types
 import           Network.Wai
 import           Network.Wai.Handler.Warp
+import           Network.Wai.Logger
 import           Servant
 
 import           Action
@@ -96,4 +97,7 @@ app :: Application
 app = serve api server
 
 main :: IO ()
-main = run 4000 app
+main = do
+    withStdoutLogger $ \logger -> do
+        let settings = setPort 4000 $ setLogger logger defaultSettings
+        runSettings settings app
