@@ -1,4 +1,3 @@
-{-# LANGUAGE RecordWildCards #-}
 module Main where
 
 import           Miso
@@ -10,12 +9,12 @@ import           View
 
 main :: IO ()
 main = do
-    uri <- getCurrentURI
-    startApp App { model = initialModel uri, ..}
-    where
-        initialAction = initAction
-        update = updateModel
-        view = viewModel
-        subs = [ uriSub HandleURI ]
-        events = defaultEvents
-        mountPoint = Nothing
+    miso $ \uri -> App {
+          initialAction = initAction
+        , model = initialModel uri
+        , update = updateModel
+        , view = viewModel
+        , subs = [ uriSub HandleURI ]
+        , events = defaultEvents
+        , mountPoint = Nothing
+        }
