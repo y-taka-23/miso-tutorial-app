@@ -8,20 +8,19 @@ dependencies:
 - aeson
 - base
 - bytestring
-  #- ghcjs-base
+- containers
+- http-types
+- lucid
 - miso
+- network-uri
 - servant
 - servant-server
-- utf8-string
-- network-uri
-- http-types
-- warp
-- wai
-- lucid
-- wai-logger
-- containers
 - stm
 - transformers
+- utf8-string
+- wai
+- wai-logger
+- warp
 
 executables:
   miso-tutorial-app-server:

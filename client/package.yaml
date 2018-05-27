@@ -10,9 +10,9 @@ dependencies:
 - bytestring
 - ghcjs-base
 - miso
+- network-uri
 - servant
 - utf8-string
-- network-uri
 
 executables:
   miso-tutorial-app-client:
