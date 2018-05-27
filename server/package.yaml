@@ -19,6 +19,9 @@ dependencies:
 - wai
 - lucid
 - wai-logger
+- containers
+- stm
+- transformers
 
 executables:
   miso-tutorial-app-server:
