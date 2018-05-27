@@ -25,3 +25,5 @@ cabal.project.local
 *.js_hi
 
 node_modules/
+
+server/static
