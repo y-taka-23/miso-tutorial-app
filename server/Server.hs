@@ -13,7 +13,7 @@ import           Network.Wai
 import           Servant
 
 import           Action
-import           API
+import           Api
 import           Html
 import           Model
 import           Routing
