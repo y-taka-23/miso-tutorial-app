@@ -7,11 +7,11 @@ RUN cp crtbeginS.o crtbeginT.o
 COPY ./ /work
 WORKDIR /work
 
-RUN stack build \
+RUN stack install \
+    --stack-yaml server/stack.yaml \
+    --local-bin-path /sbin \
     --system-ghc \
-    --local-bin-path \
-    --ghc-options '-optl-static -fPIC -optc-Os' \
-    /sbin build
+    --ghc-options '-optl-static -fPIC -optc-Os'
 
 
 FROM alpine:3.7
