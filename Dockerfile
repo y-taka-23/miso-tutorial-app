@@ -25,4 +25,5 @@ RUN mkdir /static
 COPY --from=builder /sbin/miso-tutorial-app-server /
 COPY --from=builder /sbin/all.js /static/
 
+EXPOSE 4000
 CMD ["/miso-tutorial-app-server"]
