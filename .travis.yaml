@@ -1,0 +1,10 @@
+sudo: required
+
+service:
+- docker
+
+script:
+# Todo: tag the image properly
+- docker build -t ytaka23/miso-tutorial-app .
+# Todo: add e2e tests here
+# Todo: push the image to Docker Hub
