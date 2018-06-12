@@ -10,6 +10,21 @@ This project is ported from [Elm implementation](https://github.com/sporto/elm-t
 * [Path-based routing by Servant API](./src/Routing.hs)
 * [Accessing outside world in IO monads](./src/Effect.hs)
 
+Running the Application
+-----------------------
+
+### Docker
+
+TODO
+
+### Building from source
+
+```console
+git clone https://github.com/y-taka-23/miso-tutorial-app.git
+cd miso-tutorial-app
+./run.sh
+```
+
 References
 ----------
 
