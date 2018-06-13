@@ -1,0 +1,3 @@
+build:
+  ci:
+    - docker build -t ytaka23/miso-tutorial-app:latest .
