@@ -1,4 +1,4 @@
-FROM fpco/stack-build:lts-7.19 AS builder
+FROM ytaka23/stack-ghcjs:lts-7.19 AS builder
 
 WORKDIR /usr/lib/gcc/x86_64-linux-gnu/5.4.0
 RUN cp crtbeginT.o crtbeginT.o.orig
