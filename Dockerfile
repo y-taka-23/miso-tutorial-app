@@ -9,7 +9,7 @@ WORKDIR /work
 
 RUN stack setup --stack-yaml client/stack.yaml
 RUN stack build --stack-yaml client/stack.yaml
-RUN cp /work/client/.stack-work/install/x86_64-linux/lts-7.19/ghcjs-0.2.1.9007019_ghc-8.0.1/bin/miso-tutorial-app-client.jsexe/all.js \
+RUN cp $(stack path --stack-yaml client/stack.yaml --local-install-root)/bin/miso-tutorial-app-client.jsexe/all.js \
        /sbin/
 
 RUN stack install \
